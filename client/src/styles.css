@@ -2,3 +2,10 @@
 * {
   font-family: Arial, sans-serif;
 }
+body{
+  background: url("https://picsum.photos/1000/1000/?random") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  position: relative; 
+ 
+}

@@ -1,4 +1,4 @@
-<h1> Authentication Sample </h1>
+<!-- <h1> Please Log In  </h1>
 <form>
   <h2> Login </h2>
   <label> Username </label>
@@ -9,4 +9,28 @@
 
   <button (click)="sendForm()"> login </button>
 </form>
-<p class="error"> {{ error }} </p>
+<p class="error"> {{ error }} </p> -->
+
+
+<div id="signin">
+    <div class="form-title">Sign in</div>
+    <div class="input-field">
+        <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+      <i class="material-icons">Username</i>
+      <label for="email">Username</label>
+    </div>
+    <div class="input-field">
+        <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+      <i class="material-icons">lock</i>
+      <label for="password">Password</label>
+    </div>
+    
+    <button (click)="sendForm()" class="login">Login</button>
+    <div class="check">
+      <i class="material-icons">check</i>
+    </div>
+  </div>
+  <div id="gif">
+   
+  </div>
+

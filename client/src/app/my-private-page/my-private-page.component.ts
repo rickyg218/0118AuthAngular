@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../services/session.service";
+import { AlbumService } from '../services/album.service'
 
 @Component({
   selector: 'app-my-private-page',
@@ -7,16 +8,22 @@ import { SessionService } from "../services/session.service";
   styleUrls: ['./my-private-page.component.css']
 })
 export class MyPrivatePageComponent implements OnInit {
-  username: string = "";
-  secret: string = "";
-
-  constructor(private session: SessionService) { }
+  username: string = '';
+  albumList: any;
+  constructor(private session: SessionService, private albumS : AlbumService) { }
 
   ngOnInit() {
     this.session.loggedIn()
       .subscribe(user => {
-        this.secret = user.secret;
         this.username = user.username;
-      });
+        this.albumS.getMyAlbum()
+          .subscribe(myAlbums =>{
+            console.log(myAlbums);
+             this.albumList = myAlbums;
+          });
+    });
+
   }
+
+
 }

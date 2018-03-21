@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-signup',
@@ -13,7 +13,15 @@ export class AuthSignupComponent implements OnInit {
   ngOnInit() {
   }
   sendSignupForm(myForm){
+   // console.log(myForm.value);
     this.sessionS.signup(myForm.value)
-      .subscribe(()=> this.router.navigate(['private']))
-  }
+      .subscribe(user=>{
+        console.log(user);
+      this.router.navigate(['private'])
+      });
+  
+    }
+
+
+
 }

@@ -1,4 +1,27 @@
-<h1>Mi pagina privada </h1>
-<h3>Hola {{username}}</h3>
-<h4>Your Secret</h4>
-<p>{{secret}}</p>
+<div class="box effect5">
+<h3>Welcome {{username}}</h3>
+<p>I hope you enjoy your pictures!</p>
+</div>
+
+<div class="wrapper">
+        <span class="square individual">
+          <a class="ninth before after" [routerLink]="['/addAlbum']" >Create New Album</a>
+        </span>
+      </div>
+
+
+
+      <div class = "images" *ngFor='let album of albumList'>
+         <!-- <div class="header">
+          <h1>{{album.title}}</h1>
+        </div> -->
+        <div class = "images" *ngFor='let photo of album.photos'>
+            
+          <img width='250 ' height="250" [src]="'http://localhost:3000' + photo.picPath" alt="" onclick='this.src="full_size.picPath"'>
+        </div>
+      </div> 
+
+
+      <!-- <img  [src]="'http://localhost:3000' + photo.picPath" alt="" onclick='this.src="full_size.picPath"' /> -->
+
+      

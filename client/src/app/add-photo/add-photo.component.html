@@ -1,0 +1,14 @@
+<h1> Add a new photo </h1>
+<a [routerLink]="['']"> Back to list </a>
+
+<form class="photoForm" (ngSubmit)="createPhoto(myForm)" #myForm="ngForm">
+    <p> Name Photo
+      <input type="text" name="title" [(ngModel)]="title" />
+    </p>
+    <p> Img
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader" multiple/>      
+    </p>
+    <button type="submit"> Create New Album </button>
+
+  </form>
+

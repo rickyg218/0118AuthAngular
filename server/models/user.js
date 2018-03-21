@@ -5,7 +5,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   name: String,
-  secret: String
+  albums:[{type:Schema.Types.ObjectId,ref:'Album'}]
 }, {
   timestamps: {
     createdAt: "created_at",

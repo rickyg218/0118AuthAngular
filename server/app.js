@@ -12,9 +12,16 @@ const passport       = require("passport");
 const app            = express();
 
 
+
+var albumController = require('./routes/album');
+const photoController = require('./routes/photo');
+
+
+
+
 // Mongoose configuration
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/angular-authentication")
+mongoose.connect("mongodb://localhost/GarciaPhotography")
   .then(console.log("Connected to DB!!"))
 
 // Session
@@ -32,7 +39,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // uncomment after placing your favicon in /public
 app.use(logger('dev'));
 app.use(bodyParser.json());
+//app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({extended:true, limit:'50mb'}));
 app.use(cookieParser());
 
 app.use(session({
@@ -47,6 +56,9 @@ require("./config/passport")(passport,app);
 
 
 app.use('/api', authController);
+app.use('/api/album', albumController);
+app.use('/api/photo', photoController);
+
 app.all('/*', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });

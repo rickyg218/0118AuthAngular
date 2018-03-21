@@ -1,4 +1,5 @@
-<h1> Authentication Sample </h1>
+
+<!-- <h1> Please Sign Up </h1>
 <form (ngSubmit)="sendSignupForm(myForm)" #myForm="ngForm">
   <h2> Signup </h2>
   <label> Username </label>
@@ -7,12 +8,43 @@
   <label> Password </label>
   <input type="password" [(ngModel)]="password" name="password"/>
   <br>
-  <label> Name </label>
-  <input type="text" [(ngModel)]="name" name="name"/>
+  <label> Email </label>
+  <input type="text" [(ngModel)]="email" name="email"/>
   <br>
-  <label> Secret </label>
-  <input type="text" [(ngModel)]="secret" name="secret"/>
+ 
 
-  <button type="submit"> login </button>
+  <button type="submit">Signup</button>
 </form>
-<p class="error"> {{ error }} </p>
+<p class="error"> {{ error }} </p>  -->
+
+
+<form id="signin" #myForm='ngForm' (ngSubmit)='sendSignupForm(myForm)'>
+  <div class="form-title">Please Sign UP</div>
+    <div class="input-field">
+      <input type="text" ngModel name="username"/>
+      <i class="material-icons">Username</i>
+      <label for="email">Username</label>
+    </div>
+    <div class="input-field">
+        <input type="password" ngModel name="password"/>
+      <i class="material-icons">lock</i>
+      <label for="password">Password</label>
+    </div>
+    <div class="input-field">
+        <input type="text" ngModel name="email"/>
+      <i class="material-icons">Email</i>
+      <label for="email">Email</label>
+    </div>
+    
+    <input type="submit">
+    <div class="check">
+      <i class="material-icons">check</i>
+    </div>
+  
+</form>
+
+
+
+
+
+

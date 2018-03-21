@@ -8,10 +8,9 @@ const bcrypt         = require("bcrypt");
 const bcryptSalt     = 19;
 
 authController.post("/signup", (req, res, next) => {
-  if (!req.body.username || !req.body.password || !req.body.name || !req.body.secret) {
+  if (!req.body.username || !req.body.password || !req.body.email) {
     res.status(400).json({ message: "Provide all the fields to sign up" });
   }
-
   User.findOne({ username:req.body.username }, "username", (err, user) => {
     if (user !== null) {
       res.status(400).json({ message: "The username already exists" });
@@ -24,8 +23,7 @@ authController.post("/signup", (req, res, next) => {
     let newUser  = new User({
       username:req.body.username,
       password: hashPass,
-      name:req.body.name,
-      secret:req.body.secret
+      email:req.body.email,
     });
 
     console.log(newUser);

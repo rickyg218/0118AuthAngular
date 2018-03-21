@@ -1,0 +1,14 @@
+
+
+
+<h1> Add a new Album </h1>
+<a [routerLink]="['']"> Back to list </a>
+<legend> Album Info </legend>
+
+<form class="albumForm" (ngSubmit)="createAlbum(myForm)" #myForm="ngForm">
+    <p> Name Album
+      <input type="text" name="title" [(ngModel)]="title" />
+    </p>
+    <button type="submit"> Create New Album </button>
+
+  </form>
